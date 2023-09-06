@@ -172,6 +172,14 @@ jobs:
           # Resetting npm's script shell for Windows so `yarn run cypress` doesn't have conflicts
           npm config delete script-shell
 
+      - name: wait for osd
+        run: |
+          curl -L localhost:5601/app/home#/
+          sleep 300
+          curl -L localhost:5601/app/home#/
+          curl localhost:9200
+        shell: bash
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v2
         with:
