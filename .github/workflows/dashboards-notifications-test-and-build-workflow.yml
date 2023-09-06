@@ -176,7 +176,8 @@ jobs:
         with:
           working-directory: OpenSearch-Dashboards/plugins/dashboards-notifications
           command: yarn run cypress run
-          wait-on: 'http://localhost:5601'
+          wait-on: 'http://localhost:5601/app/home#/'
+          wait-on-timeout: 300
         env:
           CYPRESS_CACHE_FOLDER: ${{ matrix.cypress_cache_folder }}
 
